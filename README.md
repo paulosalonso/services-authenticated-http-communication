@@ -35,6 +35,3 @@ Quando a aplicação roda com o profile "local", ela busca estados apenas na sua
 O profile "sync" de legacy-consumer também permite a ativação de um scheduler que realiza sincronizações a cada 10 segundos com o serviço legacy-api. Nesse caso, a sincronização deixa de ser feita ao realizar uma requisição GET em legacy-consumer, sendo feita apenas pelo scheduler. Para ativar o scheduler, criar uma variável de ambiente LEGACY_CONSUMER_SCHEDULED_SYNC com o valor "true".
 
 A aplicação legacy-api é iniciada com dois estados brasileiros cadastrados.
-
-Diagrama de sequência
-![diagrama-de-sequencia][(/legacy-communication-sequence.jpeg)
