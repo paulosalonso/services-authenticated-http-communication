@@ -28,7 +28,7 @@ No serviço legacy-api também é possível autenticar um client (fluxo client_c
 client_id: legacy-consumer
 cliente_secret: 123
 
-O serviço legacy-consumer possui dois profiles: "local" e "sync". Quando não informado um profile para a aplicação, o profile "default" do Spring tem o mesmo comportamento do profile "local".
+O serviço legacy-consumer possui dois profiles: "local" e "sync". Quando não informado um profile para a aplicação, o profile "default" do Spring tem o mesmo comportamento do profile "local". Para ativar um dos perfis crie uma variável de ambiente SPRING_PROFILES_ACTIVE com valor do profile desejado ("local" ou "sync").
 
 Quando a aplicação roda com o profile "local", ela busca estados apenas na sua própria base. Quando roda com o profile "sync", consulta o serviço legacy-api e sincroniza os estados.
 
