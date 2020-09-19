@@ -30,6 +30,7 @@ public class Properties {
         public String oauthPath;
         public String clientId;
         public String clientSecret;
+        public boolean autoSync;
     }
 
 }

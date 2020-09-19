@@ -42,14 +42,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		this.authenticationManager = authenticationManager;
 		this.properties = properties;
 	}
-
-	@Override
-	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		InMemoryClientDetailsServiceBuilder clientBuilder = clients.inMemory();
-
-		properties.security.clients.entrySet().forEach(keySet ->
-				buildClient(clientBuilder, keySet.getKey(), keySet.getValue()));
-	}
 	
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) {
@@ -73,17 +65,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
 		jwtAccessTokenConverter.setSigningKey(properties.security.signingKey);
 		return jwtAccessTokenConverter;
-	}
-
-	private void buildClient(InMemoryClientDetailsServiceBuilder clientBuilder, String clientId, String clientSecret) {
-		clientBuilder
-				.withClient(clientId)
-				.secret(passwordEncoder.encode(clientSecret))
-				.authorizedGrantTypes("client_credentials", "password", "refresh_token")
-				.accessTokenValiditySeconds(ONE_DAY_IN_SECONDS)
-				.refreshTokenValiditySeconds(ONE_WEEK_IN_SECONDS)
-				.autoApprove(true)
-				.redirectUris("http://localhost:8081")
-				.scopes("*");
 	}
 }

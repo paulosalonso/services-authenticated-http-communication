@@ -1,6 +1,5 @@
 package com.github.paulosalonso.api.controller;
 
-import com.github.paulosalonso.client.LegacyApiClient;
 import com.github.paulosalonso.domain.model.Estado;
 import com.github.paulosalonso.domain.repository.EstadoRepository;
 import com.github.paulosalonso.domain.service.EstadoService;
@@ -29,7 +28,7 @@ public class EstadoController {
 
     @GetMapping("/{id}")
     public Estado buscar(@PathVariable Long id) {
-        return repository.findById(id)
+        return estadoService.buscar(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Profile({ "default", "local" })
 @Service
@@ -21,5 +22,10 @@ public class EstadoLocalService implements EstadoService {
     @Override
     public List<Estado> listar() {
         return repository.findAll();
+    }
+
+    @Override
+    public Optional<Estado> buscar(Long id) {
+        return repository.findById(id);
     }
 }
