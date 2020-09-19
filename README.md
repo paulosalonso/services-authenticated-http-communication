@@ -36,4 +36,7 @@ O profile "sync" de legacy-consumer também permite a ativação de um scheduler
 
 A aplicação legacy-api é iniciada com dois estados brasileiros cadastrados.
 
+
+Diagrama de sequência:
+
 ![diagrama-de-sequencia](https://raw.githubusercontent.com/paulosalonso/services-authenticated-http-communication/master/legacy-communication-sequence.jpeg)
